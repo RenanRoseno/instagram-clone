@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 d-flex justify-content-end">
+    <div class="col-sm-6 d-flex justify-content-end" [@animation-banner]="stateBanner">
       <app-banner></app-banner>
     </div>
 
-    <div class="col-sm-6 d-flex justify-content-start">
+    <div class="col-sm-6 d-flex justify-content-start" [@animation-panel]="stateBanner">
       <app-login></app-login>
       <!-- <app-cadastro></app-cadastro> -->
     </div>
