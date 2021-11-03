@@ -21,19 +21,19 @@ import { Picture } from 'src/app/model/picture.model';
 export class BannerComponent implements OnInit {
 
   public initialState: string = 'hidden';
-  // public images: Picture[] = [
-  //   { state: 'visible', url: '../../../assets/banner-acesso/img_1.png' },
-  //   { state: 'hidden', url: '../../../assets/banner-acesso/img_2.png' },
-  //   { state: 'hidden', url: '../../../assets/banner-acesso/img_3.png' },
-  //   { state: 'hidden', url: '../../../assets/banner-acesso/img_4.png' },
-  //   { state: 'hidden', url: '../../../assets/banner-acesso/img_5.png' }
-  // ]
   public images: Picture[] = [
-    { state: 'visible', url: '../../../assets/banner-acesso/imteste1.png' },
-    { state: 'hidden', url: '../../../assets/banner-acesso/imteste2.png' },
-    { state: 'hidden', url: '../../../assets/banner-acesso/imteste3.png' },
-    { state: 'hidden', url: '../../../assets/banner-acesso/imteste4.png' },
+    { state: 'visible', url: '../../../assets/banner-acesso/img_1.png' },
+    { state: 'hidden', url: '../../../assets/banner-acesso/img_2.png' },
+    { state: 'hidden', url: '../../../assets/banner-acesso/img_3.png' },
+    { state: 'hidden', url: '../../../assets/banner-acesso/img_4.png' },
+    { state: 'hidden', url: '../../../assets/banner-acesso/img_5.png' }
   ]
+  // public images: Picture[] = [
+  //   { state: 'visible', url: '../../../assets/banner-acesso/imteste1.png' },
+  //   { state: 'hidden', url: '../../../assets/banner-acesso/imteste2.png' },
+  //   { state: 'hidden', url: '../../../assets/banner-acesso/imteste3.png' },
+  //   { state: 'hidden', url: '../../../assets/banner-acesso/imteste4.png' },
+  // ]
 
   constructor() { }
 
