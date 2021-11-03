@@ -4,9 +4,15 @@
       <app-banner></app-banner>
     </div>
 
-    <div class="col-sm-6 d-flex justify-content-start" [@animation-panel]="stateBanner">
-      <app-login></app-login>
-      <!-- <app-cadastro></app-cadastro> -->
+    <div class="col-sm-6 d-flex justify-content-start">
+      <div *ngIf="registration; else formLogin" [@animation-panel]="stateBanner">
+        <app-cadastro (showLoginPanel)="showLoginPanel($event)"></app-cadastro>
+      </div>
+      <ng-template #formLogin>
+        <div [@animation-panel]="stateBanner">
+          <app-login (showPanel)="showCreatePanel($event)"></app-login>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
