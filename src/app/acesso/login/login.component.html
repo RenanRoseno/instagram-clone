@@ -1,30 +1,49 @@
-<div class="card" style="width: 20rem;">
+<div class="card" style="width: 20rem">
   <div class="card-body">
     <div class="card-title"></div>
 
-    <form>
+    <form [formGroup]="form">
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="E-mail">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="E-mail"
+          formControlName="email"
+        />
       </div>
       <div class="form-group margin">
-        <input type="password" class="form-control" placeholder="Senha">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Senha"
+          formControlName="password"
+        />
       </div>
       <div class="d-grid gap-2 margin">
-        <button class="btn btn-primary" type="button">Entrar</button>
+        <button
+          class="btn btn-primary"
+          type="button"
+          [disabled]="!isFormValid"
+          (click)="login()"
+        >
+          Entrar
+        </button>
       </div>
     </form>
     <hr />
 
-    <p class="small text-danger text-center">O nome de usuário inserido não pertence a uma conta. Verifique seu nome de
-      usuário e tente novamente.</p>
-
+    <p class="small text-danger text-center">
+      O nome de usuário inserido não pertence a uma conta. Verifique seu nome de
+      usuário e tente novamente.
+    </p>
   </div>
 </div>
 <br />
-<div class="card" style="width: 20rem;">
+<div class="card" style="width: 20rem">
   <div class="card-body">
     <p class="card-text">
-      Não tem uma conta? <a href="#" class="card-link" (click)="showCreatePanel()">Cadastre-se</a>
+      Não tem uma conta?
+      <a href="#" class="card-link" (click)="showCreatePanel()">Cadastre-se</a>
     </p>
   </div>
 </div>
