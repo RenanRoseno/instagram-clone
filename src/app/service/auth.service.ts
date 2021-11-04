@@ -1,14 +1,33 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
+import * as firebase from '@firebase/auth';
+import { ɵAngularFireSchedulers } from '@angular/fire';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor() { }
+  constructor() {}
 
   public saveUser(user: User): void {
-    console.log(user);
+    firebase
+      .createUserWithEmailAndPassword(
+        firebase.getAuth(),
+        user.email,
+        user.password
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((erro) => console.log(erro));
+  }
+
+  public login(email: string, password: string): void {
+    firebase
+      .signInWithEmailAndPassword(firebase.getAuth(), email, password)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((erro) => console.log(erro));
   }
 }

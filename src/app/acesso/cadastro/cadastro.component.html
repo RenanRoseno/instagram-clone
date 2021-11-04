@@ -4,7 +4,7 @@
 
     <form [formGroup]="form">
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="E-mail" formControlName="email" required>
+        <input type="email" class="form-control" placeholder="E-mail" formControlName="email" ngModel email>
       </div>
       <div class="form-group">
         <input type="text" class="form-control margin" placeholder="Nome completo" formControlName="name">
@@ -16,7 +16,7 @@
         <input type="password" class="form-control margin" placeholder="Senha" formControlName="password">
       </div>
       <div class="d-grid gap-2 margin">
-        <button class="btn btn-primary" type="button" (click)="saveUser()">Cadastrar</button>
+        <button class="btn btn-primary" type="button" (click)="saveUser()" [disabled]="!isFormValid">Cadastrar</button>
       </div>
     </form>
     <hr />
