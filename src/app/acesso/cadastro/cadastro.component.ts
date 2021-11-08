@@ -39,7 +39,7 @@ export class CadastroComponent implements OnInit {
       formValue.password,
     );
 
-    this.authService.saveUser(user);
+    this.authService.saveUser(user).then(() => this.showLoginPanelEvent())
   }
 
   public get isFormValid(): boolean {

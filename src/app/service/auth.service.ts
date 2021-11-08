@@ -9,8 +9,8 @@ import { ɵAngularFireSchedulers } from '@angular/fire';
 export class AuthService {
   constructor() {}
 
-  public saveUser(user: User): void {
-    firebase
+  public saveUser(user: User): Promise<any> {
+    return firebase
       .createUserWithEmailAndPassword(
         firebase.getAuth(),
         user.email,
