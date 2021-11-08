@@ -41,7 +41,7 @@ import { Component, OnInit } from '@angular/core';
 export class AcessoComponent implements OnInit {
 
   public stateBanner: string = 'created';
-  public registration: boolean = true;
+  public registration: boolean = false;
 
   constructor() { }
 

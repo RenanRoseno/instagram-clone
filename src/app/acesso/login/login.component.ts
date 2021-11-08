@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+  @ViewChild('errorSwal')
+  public readonly errorSwal!: SwalComponent;
+
   @Output() public showPanel : EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
@@ -32,6 +35,8 @@ export class LoginComponent implements OnInit {
 
   public login(): void {
     const formValue = this.form.value;
-    this.authService.login(formValue.email, formValue.password);
+    this.authService.login(formValue.email, formValue.password).catch((error)=>{
+      this.errorSwal.fire();
+    })
   }
 }
