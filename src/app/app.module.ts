@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './home/posts/posts.component';
 import { RouterModule} from '@angular/router';
 import { ROUTES } from './app.routes';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ROUTES } from './app.routes';
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    SweetAlert2Module.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
   providers: [AuthService],
