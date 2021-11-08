@@ -1,29 +1,39 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { User } from 'src/app/model/user.model';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
+  @ViewChild('sucessSwal')
+  public readonly sucessSwal!: SwalComponent;
 
-  @Output() public showLoginPanel: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @ViewChild('errorSwal')
+  public readonly errorSwal!: SwalComponent;
+
+  @Output() public showLoginPanel: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
   public form: FormGroup = new FormGroup({
-    'email': new FormControl(null, Validators.required),
-    'name': new FormControl(null, Validators.required),
-    'user': new FormControl(null, Validators.required),
-    'password': new FormControl(null, Validators.required),
-  })
+    email: new FormControl(null, Validators.required),
+    name: new FormControl(null, Validators.required),
+    user: new FormControl(null, Validators.required),
+    password: new FormControl(null, Validators.required),
+  });
 
-  constructor(
-    private authService : AuthService
-  ) { }
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public showLoginPanelEvent(): void {
     this.showLoginPanel.emit(true);
@@ -36,13 +46,18 @@ export class CadastroComponent implements OnInit {
       formValue.email,
       formValue.user,
       formValue.name,
-      formValue.password,
+      formValue.password
     );
 
-    this.authService.saveUser(user);
+    this.authService.saveUser(user).then(() => {
+      this.sucessSwal.fire();
+      this.showLoginPanelEvent();
+    }).catch((error)=>{
+     this.errorSwal.fire();
+    });
   }
 
   public get isFormValid(): boolean {
-    return this.form.valid
+    return this.form.valid;
   }
 }

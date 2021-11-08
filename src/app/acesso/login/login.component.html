@@ -30,12 +30,7 @@
         </button>
       </div>
     </form>
-    <hr />
 
-    <p class="small text-danger text-center">
-      O nome de usuário inserido não pertence a uma conta. Verifique seu nome de
-      usuário e tente novamente.
-    </p>
   </div>
 </div>
 <br />
@@ -47,3 +42,9 @@
     </p>
   </div>
 </div>
+<swal
+  #errorSwal
+  title="Erro"
+  text="Não foi possivel realizar o login, por favor, verifique seus dados!"
+  icon="error"
+></swal>

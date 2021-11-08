@@ -50,7 +50,6 @@ export class BannerComponent implements OnInit {
         this.images[i].state = 'hidden';
         //this.images[i+1].state = 'visible';
         aux = i === this.images.length - 1 ? 0 : i + 1;
-        console.log(this.images)
         break;
       }
     }
