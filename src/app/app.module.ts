@@ -16,6 +16,8 @@ import { RouterModule} from '@angular/router';
 import { ROUTES } from './app.routes';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AuthGuardService } from './service/auth-guard.service';
+import { AddPostComponent } from './home/add-post/add-post.component';
+import { DataService } from './service/data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { AuthGuardService } from './service/auth-guard.service';
     CadastroComponent,
     HomeComponent,
     PostsComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { AuthGuardService } from './service/auth-guard.service';
     SweetAlert2Module.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService, AuthGuardService, AcessoComponent],
+  providers: [AuthService, AuthGuardService, AcessoComponent, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
