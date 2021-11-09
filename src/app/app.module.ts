@@ -18,6 +18,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AuthGuardService } from './service/auth-guard.service';
 import { AddPostComponent } from './home/add-post/add-post.component';
 import { DataService } from './service/data.service';
+import { ProgressService } from './service/progress.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { DataService } from './service/data.service';
     SweetAlert2Module.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AuthService, AuthGuardService, AcessoComponent, DataService],
+  providers: [AuthService, AuthGuardService, AcessoComponent, DataService, ProgressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
