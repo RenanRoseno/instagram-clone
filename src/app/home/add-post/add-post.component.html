@@ -10,7 +10,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" *ngIf="progress === 'pendente'">
       <div [formGroup]="form">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Criar publicação</h5>
@@ -26,7 +26,16 @@
             type="text"
             placeholder="Título da publicação"
             class="form-control"
-            formControlName = "title"
+            formControlName="title"
+          />
+
+          <input
+            type="file"
+            placeholder="Título da publicação"
+            class="form-control"
+            accept="image/*"
+            (change)="prepareImageUpload($event)"
+            style="margin-top: 1em"
           />
         </div>
         <div class="modal-footer">
@@ -37,7 +46,79 @@
           >
             Fechar
           </button>
-          <button type="button" (click)="post()" class="btn btn-primary">Publicar</button>
+          <button type="button" (click)="post()" class="btn btn-primary">
+            Publicar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content" *ngIf="progress === 'andamento'">
+      <div [formGroup]="form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Publicalçao em andamento</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Progresso: {{percertProgress}}
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+          <button type="button" (click)="post()" class="btn btn-primary">
+            Publicar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content" *ngIf="progress === 'concluido'">
+      <div [formGroup]="form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Criar publicação</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <input
+            type="text"
+            placeholder="Título da publicação"
+            class="form-control"
+            formControlName="title"
+          />
+
+          <input
+            type="file"
+            placeholder="Título da publicação"
+            class="form-control"
+            accept="image/*"
+            (change)="prepareImageUpload($event)"
+            style="margin-top: 1em"
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+          <button type="button" (click)="post()" class="btn btn-primary">
+            Publicar
+          </button>
         </div>
       </div>
     </div>
