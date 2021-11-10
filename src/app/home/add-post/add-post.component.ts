@@ -18,7 +18,7 @@ export class AddPostComponent implements OnInit {
   });
   private image: any;
   public progress: string = 'pendente';
-  public percertProgress: number = 0;
+  public percertProgress: number = 0 ;//Math.round((this.progressService.state.bytesTransferred / this.progressService.state.totalBytes) * 100);
   
   constructor(
     private dataService: DataService,
@@ -49,6 +49,8 @@ export class AddPostComponent implements OnInit {
       console.log(this.progressService.state);
       console.log(this.progressService.status);
       this.progress = 'andamento'
+     
+      this.percertProgress = Math.round((this.progressService.state.bytesTransferred / this.progressService.state.totalBytes) * 100);
       if(this.progressService.status === 'concluido'){
         this.progress = 'concluido';
         cont.next(false);
