@@ -7,3 +7,20 @@ export const firebaseConfig = {
   messagingSenderId: '934421229290',
   appId: '1:934421229290:web:199c735a174d505769b193',
 };
+
+export const heart =`
+________xxxxxxxxx______xxxxxxxxx
+_____xxxxxxxxxxxxxx___xxxxxxxxxxxxx
+_____xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxx
+_____xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+______xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+_______xxxxxxxxxxxxxxxxxxxxxxxxxxx
+_________xxxxxxxxxxxxxxxxxxxxxxx
+____________xxxxxxxxxxxxxxxxxx
+______________xxxxxxxxxxxxxx
+_________________xxxxxxxxx
+__________________xxxxxx
+___________________xxxx
+___________________xxx
+__________________xx
+_________________x `
