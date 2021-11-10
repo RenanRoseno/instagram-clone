@@ -7,9 +7,8 @@ import { ProgressService } from './progress.service';
 export class DataService {
   constructor(private progressService: ProgressService) {}
   private posts: Array<any> = [];
-  public post(post: any): void {
-    console.log(post);
 
+  public post(post: any): void {
     firebase
       .database()
       .ref(`posts/${btoa(post.email)}`)
@@ -42,6 +41,7 @@ export class DataService {
       firebase
         .database()
         .ref(`posts/${btoa(email)}`)
+        .orderByChild('key')
         .once('value')
         .then((snapshot: any) => {
           snapshot.forEach((element: any) => {

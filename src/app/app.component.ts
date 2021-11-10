@@ -12,14 +12,13 @@ export class AppComponent implements OnInit {
   private heart = heart;
   ngOnInit(): void {
     firebase.initializeApp(firebaseConfig);
-    //this.showConsole();
   }
 
   private showConsole(): void {
     const follower = interval(1500);
     follower.subscribe(() => {
       this.heart += '\n';
-      console.log(heart);
+      //show heart
     });
   }
 }
